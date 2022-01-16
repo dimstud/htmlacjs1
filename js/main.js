@@ -1,20 +1,18 @@
-function getRandomIntInclusive(min, max) {
-  if (min > max) {
-    alert('Error min > max');
-    return;
+const getRandomInt = function(min, max) {
+  if (min < 0 || max < 0) {
+    return -1;
   }
 
-  min = Math.ceil(min);
-  max = Math.floor(max);
+  if (max < min) {
+    [min, max] = [max, min];
+  }
 
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-alert(getRandomIntInclusive(5, 15));
+getRandomInt(5, 15);
 
-function lengthCheck(string, strMaxLeght) {
-  string = string.length;
-  if (string > strMaxLeght) {
-    return alert('Ошибка: превышено количество символов');
-  }
+const stringCount = (text, sign) => {
+  return text.length <= sign ? true : false;
 }
-lengthCheck('test test', 5);
+
+stringCount('Это проверочное сообщение', 140);
